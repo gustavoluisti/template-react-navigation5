@@ -2,13 +2,15 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-import HomeScreen from './HomeScreen';
-import DetailsScreen from './DetailsScreen';
-
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
+import HomeScreen from './HomeScreen';
+import DetailsScreen from './DetailsScreen';
+import Profile from './Profile';
+import Settings from './Settings';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -34,6 +36,28 @@ const MainTabScreen = () => {
         component={DetailsStackScreen}
         options={{
           tabBarLabel: 'Updates',
+          tabBarColor: '#009387',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarColor: '#009387',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        component={Settings}
+        options={{
+          tabBarLabel: 'Settings',
           tabBarColor: '#009387',
           tabBarIcon: ({color}) => (
             <MaterialCommunityIcons name="bell" color={color} size={26} />
