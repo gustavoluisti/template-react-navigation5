@@ -61,14 +61,18 @@ export function DrawerContent(props) {
                 <Icon name="home-outline" color={color} size={size} />
               )}
               label="Home"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Home');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
                 <Icon name="account-outline" color={color} size={size} />
               )}
               label="Profile"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Profile');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
@@ -82,14 +86,18 @@ export function DrawerContent(props) {
                 <Icon name="cog-outline" color={color} size={size} />
               )}
               label="Settings"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Settings');
+              }}
             />
             <DrawerItem
               icon={({color, size}) => (
                 <Icon name="account-check-outline" color={color} size={size} />
               )}
               label="Support"
-              onPress={() => {}}
+              onPress={() => {
+                props.navigation.navigate('Settings');
+              }}
             />
           </Drawer.Section>
           <Drawer.Section title="Preferences">
