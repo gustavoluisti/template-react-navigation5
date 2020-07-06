@@ -49,7 +49,7 @@ const MainTabScreen = () => {
           tabBarLabel: 'Profile',
           tabBarColor: '#009387',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <MaterialCommunityIcons name="account" color={color} size={26} />
           ),
         }}
       />
@@ -60,7 +60,11 @@ const MainTabScreen = () => {
           tabBarLabel: 'Settings',
           tabBarColor: '#009387',
           tabBarIcon: ({color}) => (
-            <MaterialCommunityIcons name="bell" color={color} size={26} />
+            <MaterialCommunityIcons
+              name="cog-outline"
+              color={color}
+              size={26}
+            />
           ),
         }}
       />
