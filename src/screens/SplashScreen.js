@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import LinearGradient from 'react-native-linear-gradient';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const SplashScreen = () => {
   return (
@@ -24,11 +24,15 @@ const SplashScreen = () => {
       <View style={styles.footer}>
         <Text style={styles.title}>Stay connected with everyone!</Text>
         <Text>Sign in with account</Text>
-        <TouchableOpacity onPress={() => {}}>
-          <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
-            <Text style={styles.textSign}>Get Started</Text>
-          </LinearGradient>
-        </TouchableOpacity>
+        <View style={styles.button}>
+          <TouchableOpacity onPress={() => {}}>
+            <LinearGradient
+              colors={['#08d4c4', '#01ab9d']}
+              style={styles.signIn}>
+              <Text style={styles.textSign}>Get Started</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
