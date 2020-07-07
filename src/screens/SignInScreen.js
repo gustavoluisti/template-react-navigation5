@@ -93,6 +93,12 @@ const SignInScreen = () => {
             )}
           </TouchableOpacity>
         </View>
+
+        <View style={styles.button}>
+          <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
+            <Text style={styles.textSign}>Sign In</Text>
+          </LinearGradient>
+        </View>
       </View>
     </View>
   );
@@ -153,6 +159,7 @@ const styles = StyleSheet.create({
   textSign: {
     fontSize: 18,
     fontWeight: 'bold',
+    color: '#fff',
   },
 });
 
