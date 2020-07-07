@@ -105,7 +105,15 @@ const SignInScreen = ({navigation}) => {
               styles.signIn,
               {borderColor: '#009387', borderWidth: 1, marginTop: 15},
             ]}>
-            <Text>Sign Up</Text>
+            <Text
+              style={[
+                styles.textSign,
+                {
+                  color: '#009387',
+                },
+              ]}>
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </View>
       </View>
