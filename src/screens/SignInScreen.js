@@ -26,7 +26,22 @@ const SignInScreen = () => {
         <Text style={styles.text_footer}>Email</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#05375a" size={20} />
-          <TextInput placeholder="Your Email" style={styles.textInput} />
+          <TextInput
+            placeholder="Your Email"
+            style={styles.textInput}
+            autoCapitalize="none"
+          />
+          <Feather name="check-circle" color="green" size={20} />
+        </View>
+
+        <View style={styles.action}>
+          <FontAwesome name="lock" color="#05375a" size={20} />
+          <TextInput
+            placeholder="Your Password"
+            style={styles.textInput}
+            autoCapitalize="none"
+          />
+          <Feather name="eye-off" color="grey" size={20} />
         </View>
       </View>
     </View>
