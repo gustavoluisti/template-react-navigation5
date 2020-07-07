@@ -34,8 +34,10 @@ const SignInScreen = () => {
           <Feather name="check-circle" color="green" size={20} />
         </View>
 
+        <Text style={[styles.text_footer, {marginTop: 35}]}>Password</Text>
+
         <View style={styles.action}>
-          <FontAwesome name="lock" color="#05375a" size={20} />
+          <Feather name="lock" color="#05375a" size={20} />
           <TextInput
             placeholder="Your Password"
             style={styles.textInput}
