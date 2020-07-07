@@ -14,9 +14,44 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import * as Animatable from 'react-native-animatable';
 
-// import { Container } from './styles';
-
 const SignInScreen = () => {
+  const [data, setData] = React.useState({
+    email: '',
+    password: '',
+    check_textInputChange: false,
+    secureTextEntry: true,
+  });
+
+  const textInputChange = val => {
+    if (val.length !== 0) {
+      setData({
+        ...data,
+        email: val,
+        check_textInputChange: true,
+      });
+    } else {
+      setData({
+        ...data,
+        email: val,
+        check_textInputChange: false,
+      });
+    }
+  };
+
+  const handlePasswordChange = val => {
+    setData({
+      ...data,
+      password: val,
+    });
+  };
+
+  const updateSecureTextEntry = () => {
+    setData({
+      ...data,
+      secureTextEntry: !data.secureTextEntry,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -29,9 +64,14 @@ const SignInScreen = () => {
           <TextInput
             placeholder="Your Email"
             style={styles.textInput}
+            onChangeText={val => textInputChange(val)}
             autoCapitalize="none"
           />
-          <Feather name="check-circle" color="green" size={20} />
+          {data.check_textInputChange ? (
+            <Animatable.View animation="bounceIn">
+              <Feather name="check-circle" color="green" size={20} />
+            </Animatable.View>
+          ) : null}
         </View>
 
         <Text style={[styles.text_footer, {marginTop: 35}]}>Password</Text>
@@ -41,9 +81,17 @@ const SignInScreen = () => {
           <TextInput
             placeholder="Your Password"
             style={styles.textInput}
+            secureTextEntry={data.secureTextEntry ? true : false}
             autoCapitalize="none"
+            onChangeText={val => handlePasswordChange(val)}
           />
-          <Feather name="eye-off" color="grey" size={20} />
+          <TouchableOpacity onPress={updateSecureTextEntry}>
+            {data.secureTextEntry ? (
+              <Feather name="eye-off" color="grey" size={20} />
+            ) : (
+              <Feather name="eye" color="grey" size={20} />
+            )}
+          </TouchableOpacity>
         </View>
       </View>
     </View>
