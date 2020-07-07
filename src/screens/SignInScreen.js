@@ -57,7 +57,7 @@ const SignInScreen = ({navigation}) => {
       <View style={styles.header}>
         <Text style={styles.text_header}>Welcome</Text>
       </View>
-      <View style={styles.footer}>
+      <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.text_footer}>Email</Text>
         <View style={styles.action}>
           <FontAwesome name="user-o" color="#05375a" size={20} />
@@ -116,7 +116,7 @@ const SignInScreen = ({navigation}) => {
             </Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Animatable.View>
     </View>
   );
 };
