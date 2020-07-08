@@ -21,6 +21,7 @@ const SignUpScreen = ({navigation}) => {
     password: '',
     check_textInputChange: false,
     secureTextEntry: true,
+    confirm_secureTextEntry: true,
   });
 
   const textInputChange = val => {
@@ -46,6 +47,12 @@ const SignUpScreen = ({navigation}) => {
     });
   };
 
+  const handleConfirmPasswordChange = val => {
+    setData({
+      ...data,
+      password: val,
+    });
+  };
   const updateSecureTextEntry = () => {
     setData({
       ...data,
@@ -53,11 +60,18 @@ const SignUpScreen = ({navigation}) => {
     });
   };
 
+  const updateConfirmSecureTextEntry = () => {
+    setData({
+      ...data,
+      confirm_secureTextEntry: !data.confirm_secureTextEntry,
+    });
+  };
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#009387" barStyle="light-content" />
       <View style={styles.header}>
-        <Text style={styles.text_header}>Welcome</Text>
+        <Text style={styles.text_header}>Register Now</Text>
       </View>
       <Animatable.View style={styles.footer} animation="fadeInUpBig">
         <Text style={styles.text_footer}>Email</Text>
@@ -105,12 +119,12 @@ const SignUpScreen = ({navigation}) => {
           <TextInput
             placeholder="Your Password"
             style={styles.textInput}
-            secureTextEntry={data.secureTextEntry ? true : false}
+            secureTextEntry={data.confirm_secureTextEntry ? true : false}
             autoCapitalize="none"
-            onChangeText={val => handlePasswordChange(val)}
+            onChangeText={val => handleConfirmPasswordChange(val)}
           />
-          <TouchableOpacity onPress={updateSecureTextEntry}>
-            {data.secureTextEntry ? (
+          <TouchableOpacity onPress={updateConfirmSecureTextEntry}>
+            {data.confirm_secureTextEntry ? (
               <Feather name="eye-off" color="grey" size={20} />
             ) : (
               <Feather name="eye" color="grey" size={20} />
@@ -120,11 +134,11 @@ const SignUpScreen = ({navigation}) => {
 
         <View style={styles.button}>
           <LinearGradient colors={['#08d4c4', '#01ab9d']} style={styles.signIn}>
-            <Text style={styles.textSign}>Sign In</Text>
+            <Text style={styles.textSign}>Sign Up</Text>
           </LinearGradient>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('SignUpScreen')}
+            onPress={() => navigation.navigate('SignInScreen')}
             style={[
               styles.signIn,
               {borderColor: '#009387', borderWidth: 1, marginTop: 15},
@@ -136,7 +150,7 @@ const SignUpScreen = ({navigation}) => {
                   color: '#009387',
                 },
               ]}>
-              Sign Up
+              Sign In
             </Text>
           </TouchableOpacity>
         </View>
